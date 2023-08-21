@@ -61,8 +61,8 @@ def main(argv):
         for element in chunk:
             binary_data_element = ('{:08b}'.format(element))
             dna_sequence = dna_sequence + (dna_dict[binary_data_element[:2]])
-            rest_bits = [binary_data_element[2:]]
-            rest_decimal = int(rest_bits[0], 2)
+            rest_bits = binary_data_element[2:]
+            rest_decimal = int(rest_bits, 2)
             confidence = confidence + (chr(rest_decimal + 33))
         print(f"@READ_{cycle}")
         print(dna_sequence)
